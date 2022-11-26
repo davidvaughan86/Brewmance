@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/recipe.css" />
+  </head>
+
+  <body>
+    <nav>
+      <a href="/main">Main</a>
+      <a href="/recipe">Recipe</a>
+      <a href="/history">History</a>
+      <a href="/locate">Locate</a>
+    </nav>
+    <h1>here is the pic</h1>
+    <button onclick="getRecipe()">get recipe</button>
+
+    <div></div>
+  </body>
+  <script>
+    async function getRecipe() {
+      const response = await fetch(
+        "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=coffee&number=1&ignorePantry=true&ranking=1",
+        {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key": "",
+            "X-RapidAPI-Host":
+              "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+          },
+        }
+      );
+      const button = document.createElement;
+
+      const data = await response.json();
+      const toasted = data[0].image;
+      console.log(data);
+    }
+    getRecipe();
+  </script>
+</html>

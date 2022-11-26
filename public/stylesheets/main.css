@@ -1,0 +1,11 @@
+body {
+  background-image: url("../images/coffeguy.jpeg"),
+    url("../images/coffee-grounds.jpg"), url("../images/swirl.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-color: rgb(215, 202, 186);
+}
+
+body url {
+  height: 300px;
+}
