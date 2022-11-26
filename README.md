@@ -1,4 +1,6 @@
-//must use '' and " " seperately from recipe html btn and eventlistener
+learned:
+
+must use ' and " seperately from recipe html btn and eventlistener
 
 Routers
 can add many routes to one router file
@@ -40,6 +42,6 @@ some code that will run when the route is accessed
     next() execute the original request
 
 })
-<img src=(./public/images/middleware.jpg)></img>
+<a herf=(./public/images/middleware.jpg)></a>
 
 in order to apply middleware to all routes at once use app.use(MWfn)
