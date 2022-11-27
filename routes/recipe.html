@@ -17,27 +17,50 @@
     </nav>
     <h1>here is the pic</h1>
     <button onclick="getRecipe()">get recipe</button>
-
-    <div></div>
+    <div class="recipe-container">
+      <div id="recipe-title"></div>
+      <div id="recipe-info"></div>
+      <div id="recipe-window"></div>
+    </div>
   </body>
   <script>
     async function getRecipe() {
       const response = await fetch(
-        "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=coffee&number=1&ignorePantry=true&ranking=1",
+        "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=coffee&number=5&ignorePantry=true&ranking=1",
         {
           method: "GET",
           headers: {
-            "X-RapidAPI-Key": "",
+            "X-RapidAPI-Key":
+              "",
             "X-RapidAPI-Host":
               "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
           },
         }
       );
-      const button = document.createElement;
-
       const data = await response.json();
+
+      const recipeInfo = data[0].missedIngredients[0].original;
+      if (data[0].missedIngredients.isArray([]) = true) {
+        const recipeInfo2 = data[0].missedIngredients[1].original;
+        recipeInfoWindow.innerHTML = recipeInfo2;
+      }
+
+      const recipeTitle = data[0].title;
+      console.log(recipeInfo);
+
+      console.log(recipeTitle);
       const toasted = data[0].image;
+      console.log(toasted);
       console.log(data);
+      const recipeTitleWindow = document.getElementById("recipe-title");
+      recipeTitleWindow.innerHTML = recipeTitle;
+      const recipeInfoWindow = document.getElementById("recipe-info");
+      recipeInfoWindow.innerHTML = recipeInfo + recipeInfo2;
+      const recipeWindow = document.getElementById("recipe-window");
+      const img = document.createElement("img");
+      document.getElementById("recipe-window").append(img);
+      img.src = toasted;
+      console.log(img);
     }
     getRecipe();
   </script>

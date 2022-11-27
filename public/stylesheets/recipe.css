@@ -5,4 +5,22 @@ body {
     background-color: black;
     height: 70vh;
     width: 100%; */
+  color: white;
+}
+
+#recipe-window {
+  max-width: 100%;
+  height: 500px;
+}
+
+#recipe-window img {
+  width: 300px;
+  align-self: center;
+  margin-top: 100%;
+  padding: 10px;
+}
+.recipe-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
