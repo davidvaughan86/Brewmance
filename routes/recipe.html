@@ -31,37 +31,40 @@
           method: "GET",
           headers: {
             "X-RapidAPI-Key":
-              "",
+              "8175894bd2mshb77d8d3e5dc5cdbp18dd87jsn10f9a41f368e",
             "X-RapidAPI-Host":
               "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
           },
         }
       );
       const data = await response.json();
+      for (i = 0; i < 15; i++) {
+        const recipeInfo = data[i].missedIngredients[i];
+        // const original = data[i].missedIngredients[i].original;
 
-      const recipeInfo = data[0].missedIngredients[0].original;
-      if (data[0].missedIngredients.isArray([]) = true) {
-        const recipeInfo2 = data[0].missedIngredients[1].original;
-        recipeInfoWindow.innerHTML = recipeInfo2;
+        const recipeTitle = data[i].title;
+        console.log(recipeInfo);
+
+        console.log(recipeTitle);
+
+        const toasted = data[i].image;
+        console.log(toasted);
+        console.log(data);
+        const recipeTitleWindow = document.getElementById("recipe-title");
+        recipeTitleWindow.innerHTML = recipeTitle;
+        const recipeInfoWindow = document.getElementById("recipe-info");
+        recipeInfoWindow.innerHTML = recipeInfo;
+        const recipeWindow = document.getElementById("recipe-window");
+        const img = document.createElement("img");
+        document.getElementById("recipe-window").append(img);
+        img.src = toasted;
+        console.log(img);
       }
-
-      const recipeTitle = data[0].title;
-      console.log(recipeInfo);
-
-      console.log(recipeTitle);
-      const toasted = data[0].image;
-      console.log(toasted);
-      console.log(data);
-      const recipeTitleWindow = document.getElementById("recipe-title");
-      recipeTitleWindow.innerHTML = recipeTitle;
-      const recipeInfoWindow = document.getElementById("recipe-info");
-      recipeInfoWindow.innerHTML = recipeInfo + recipeInfo2;
-      const recipeWindow = document.getElementById("recipe-window");
-      const img = document.createElement("img");
-      document.getElementById("recipe-window").append(img);
-      img.src = toasted;
-      console.log(img);
     }
     getRecipe();
+    // if (data[0].missedIngredients.isArray([]) = true) {
+    //   const recipeInfo2 = data[0].missedIngredients[1].original;
+    //   recipeInfoWindow.innerHTML = recipeInfo2;
+    // }
   </script>
 </html>
