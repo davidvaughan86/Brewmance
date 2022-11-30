@@ -1,14 +1,13 @@
 body {
   background-image: url("../images/dirtygroundcoffee.jpg");
-  background-size: cover;
-  /* display: block;
-    background-color: black;
-    height: 70vh;
-    width: 100%; */
+  background-size: contain;
+  background-color: black;
+  background-repeat: repeat;
   color: white;
+  height: 150vh;
 }
 
-#recipe-window {
+/* #recipe-window {
   max-width: 100%;
   height: 500px;
 }
@@ -16,11 +15,16 @@ body {
 #recipe-window img {
   width: 300px;
   align-self: center;
-  margin-top: 100%;
+  margin-top: 40%;
   padding: 10px;
 }
-.recipe-container {
+.container-fluid {
   display: flex;
   justify-content: center;
   flex-direction: column;
+} */
+.carousel-inner > .carousel-item > img {
+  min-height: 300px;
+  max-height: 300px;
+  width: 100%;
 }
