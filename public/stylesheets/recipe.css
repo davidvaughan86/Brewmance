@@ -3,7 +3,7 @@ body {
   background-size: contain;
   background-color: black;
   background-repeat: repeat;
-  color: white;
+
   height: 150vh;
 }
 
@@ -24,7 +24,32 @@ body {
   flex-direction: column;
 } */
 .carousel-inner > .carousel-item > img {
-  min-height: 300px;
-  max-height: 300px;
-  width: 100%;
+  min-height: 250px;
+  max-height: 250px;
+  width: 80%;
+  margin: 10%;
+  border: 2px solid brown;
+  border-radius: 15%;
+}
+
+h5 {
+  position: relative;
+
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+
+  -moz-text-decoration-color: transparent;
+  -webkit-text-stroke: 1px brown;
+}
+
+p {
+  position: relative;
+
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+
+  -moz-text-decoration-color: transparent;
+  -webkit-text-stroke: 0.5px brown;
 }

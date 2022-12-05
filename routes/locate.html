@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" href="../stylesheets/locate.css" />
+    <link rel="stylesheet" href="./stylesheets/map.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/main">Main</a>
+      <a href="/recipe">Recipe</a>
+
+      <a href="/locate">Info</a>
+    </nav>
+    <div class="top">
+      <h3>Click the Map Marker for more information about Coffee</h3>
+    </div>
+    <div class="container">
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=&libraries=places, marker&callback=initMap"
+    ></script>
+
+    <script>
+      // This example displays a marker at the center of Australia.
+      // When the user clicks the marker, an info window opens.
+      function initMap() {
+        const seattle = { lat: 47.608013, lng: -122.335167 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: seattle,
+        });
+        const contentString =
+          '<div id="content">' +
+          '<div id="siteNotice">' +
+          "</div>" +
+          '<h1 id="firstHeading" class="firstHeading">Seattle</h1>' +
+          '<div id="bodyContent">' +
+          "<p><b>Seattle</b>, also referred to as <b>Coffee Capital</b>. " +
+          "People in Seattle consome more coffee than any other American city" +
+          "one study stated that there are 35 coffee shops were 100,000 residents " +
+          "and that Seattle people spend and average of $36 a month on coffee. " +
+          " It is nearly impossible to walk past a single block in a commerical area" +
+          "in Seattle without walking past at least one coffee shop. Coffee drinkers " +
+          "can get coffee at a local sidewalk stand, parking lot, tiny coffee houses, " +
+          "big coffee houses, drive-through, and even delivery, several Seattle " +
+          "Ethiopian restaurants carry forward one or another degree of Ethiopian " +
+          "coffee tradition, which includes doing their own roasting.</p>" +
+          '<p>Attribution: Coffee in Seattle <a href="https://en.wikipedia.org/wiki/Coffee_in_Seattle#:~:text=Seattle%20is%20regarded%20as%20a,coffee%20culture%20and%20numerous%20coffeehouses."></a></p>" ' +
+          "</div>" +
+          "</div>";
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          ariaLabel: "Seattle",
+        });
+
+        const icon = {
+          url: "./public/images/coffee.svg",
+          scaledSize: new google.maps.Size(100, 100),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(0, 0),
+        };
+        const marker = new google.maps.Marker({
+          position: seattle,
+          map,
+          title: "Seattle (Coffee Capital)",
+        });
+
+        marker.addListener("click", () => {
+          infowindow.open({
+            anchor: marker,
+            map,
+          });
+        });
+      }
+
+      window.initMap = initMap;
+    </script>
+  </body>
+</html>

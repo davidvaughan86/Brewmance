@@ -8,6 +8,7 @@ const path = require("path");
 const helmet = require("helmet");
 const VIEWS_PATH = path.join(__dirname, "/views");
 const recipeRoutes = require("./routes/recipe");
+const locateRoutes = require("./routes/locate");
 const bodyParser = require("body-parser");
 
 app.engine("mustache", mustacheExpress(VIEWS_PATH + "/partials", ".mustache"));
@@ -15,6 +16,7 @@ app.set("views", VIEWS_PATH);
 app.set("view engine", "mustache");
 
 app.use("/recipe", recipeRoutes);
+app.use("/locate", locateRoutes);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -36,10 +38,6 @@ app.get("/main", (req, res) => {
 
 app.get("/history", (req, res) => {
   res.render("history");
-});
-
-app.get("/locate", (req, res) => {
-  res.render("locate");
 });
 
 app.listen(PORT || 3500, () => {

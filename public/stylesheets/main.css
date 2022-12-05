@@ -1,11 +1,37 @@
 body {
   background-image: url("../images/coffeguy.jpeg"),
     url("../images/coffee-grounds.jpg"), url("../images/swirl.jpeg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat, repeat, no-repeat;
   background-color: rgb(215, 202, 186);
+  color: rgb(244, 223, 223);
 }
 
 body url {
   height: 300px;
+}
+
+h1 {
+  position: relative;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -moz-text-decoration-color: transparent;
+  -webkit-text-stroke: 1px rgb(96, 49, 26);
+}
+h3 {
+  position: relative;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -moz-text-decoration-color: transparent;
+  -webkit-text-stroke: 1px rgb(182, 109, 72);
+}
+
+.aboutContainer {
+  margin-top: 45%;
+}
+
+.about h3 {
+  text-align: center;
 }
