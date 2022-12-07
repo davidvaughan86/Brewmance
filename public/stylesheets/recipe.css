@@ -7,7 +7,7 @@ body {
   height: 150vh;
 }
 
-/* #recipe-window {
+#recipe-window {
   max-width: 100%;
   height: 500px;
 }
@@ -22,34 +22,58 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-} */
-.carousel-inner > .carousel-item > img {
-  min-height: 250px;
-  max-height: 250px;
-  width: 80%;
-  margin: 10%;
-  border: 2px solid brown;
-  border-radius: 15%;
+}
+
+h1 {
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+
+  -moz-text-decoration-color: transparent;
+  -webkit-text-stroke: 1px white;
+  opacity: 0;
+  position: absolute;
 }
 
 h5 {
-  position: relative;
-
   background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
 
   -moz-text-decoration-color: transparent;
-  -webkit-text-stroke: 1px brown;
+  -webkit-text-stroke: 1px white;
+  opacity: 0;
+  position: absolute;
 }
 
-p {
-  position: relative;
+img {
+  opacity: 0;
+  position: absolute;
+}
+.recipePic {
+  border: 1px solid red;
+  height: 300px;
+}
+.recipeWindow {
+}
 
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
+.fade-in-image {
+  animation: fadeIn 10s;
+}
 
-  -moz-text-decoration-color: transparent;
-  -webkit-text-stroke: 0.5px brown;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+}
+.fade-out-image {
+  animation: fadeOut 10s;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 100;
+  }
 }

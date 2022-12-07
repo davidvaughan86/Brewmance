@@ -24,102 +24,33 @@
       <a href="/locate">Info</a>
     </nav>
     <h1>Coffee Recipes (for the adveturist)</h1>
-    <button id="getRecipe">Load Recipes</button>
     <p>Cycle through the recipes and discover a new drink</p>
     <p>We guarentee these unqiue coffee recipes will sate your coffee</p>
     <br />
     <br />
-    <br />
+    <button id="getRecipe">Load Recipes</button>
     <br />
 
-    <div
-      id="carouselExampleCaptions"
-      class="carousel slide"
-      data-bs-ride="false"
-    >
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
-      </div>
-      <div class="carousel-inner">
-        <div id="slide1" class="carousel-item active">
-          <!-- <img src="../public/images/coffeegirl2.jpeg" class="d-block w-100" /> -->
-          <div class="carousel-caption d-md-block">
-            <!-- <h5 id="slide1Title">First slide label</h5>
-            <p id="slide1Info">
-              Some representative placeholder content for the first slide.
-            </p> -->
-          </div>
-        </div>
-        <div class="carousel-item active">
-          <!-- <img src="..." class="d-block w-100" alt="..." /> -->
-          <div class="carousel-caption d-none d-md-block">
-            <!-- <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p> -->
-          </div>
-        </div>
-        <div class="carousel-item active">
-          <!-- <img src="..." class="d-block w-100" alt="..." /> -->
-          <div class="carousel-caption d-none d-md-block">
-            <!-- <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p> -->
-          </div>
-        </div>
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+    <div class="recipeWindow">
+      <div id="recipeTitle"></div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div id="recipePic"></div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div id="recipeInfo"></div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div id="recipeInfo2"></div>
     </div>
-
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
   </body>
   <script>
     const btn = document.getElementById("getRecipe");
@@ -128,7 +59,7 @@
 
       async function getRecipe() {
         const response = await fetch(
-          "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=coffee&number=3&ignorePantry=true&ranking=1",
+          "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=coffee&number=5&ignorePantry=true&ranking=1",
           {
             method: "GET",
             headers: {
@@ -139,48 +70,136 @@
           }
         );
         const data = await response.json();
-
-        data.forEach((data) => {
-          // console.log(data.title);
-          const recipeTitle = data.title;
-          console.log(recipeTitle);
-          const recipeInfo = data.missedIngredients[0].original;
-          const recipeInfo2 = data.usedIngredients[0].original;
-          console.log(recipeInfo);
-          console.log(recipeInfo2);
-          const recipeTitleWindow = document.getElementsByClassName(
-            "carousel-caption d-none d-md-block"
-          );
-          recipeTitleWindow.innerHTML = `<h5>${recipeTitle}</h5>`;
-          recipeTitleWindow.innerHTML = `<p>${recipeInfo}</p>`;
-          recipeTitleWindow.innerHTML = `<p>${recipeInfo2}</p>`;
-          // const recipeInfoWindow = document.getElementById("slide1Info");
-        });
+        console.log(data);
 
         const recipePic = data.map((data) => {
-          return data.image + 1;
-
-          //   const testImg =
-
-          //   recipeInfo + " " + "and" + " " + recipeInfo2;
-          // // const recipeWindow = document.getElementById("recipe-window");
-          // console.log(img);
+          return data.image;
         });
         console.log(recipePic);
+        console.log(recipePic[1]);
+
         recipePic.forEach((recipePic) => {
+          const recipeDisplay = document.getElementById("recipePic");
           const img = document.createElement("img");
-          img.class = "d-block w-100";
-          img.alt = "...";
           img.src = recipePic;
-          const cIA = document.get("carousel-item active");
-          cIA.append(recipePic);
+          recipeDisplay.insertBefore(img, recipeDisplay.children[0]);
+          console.log(recipePic);
         });
+
+        const recipeTitle = data.map((data) => {
+          return data.title;
+        });
+        console.log(recipeTitle);
+        console.log(recipeTitle[1]);
+
+        recipeTitle.forEach((recipeTitle) => {
+          console.log(recipeTitle);
+          const recipeTitleDisplay = document.getElementById("recipeTitle");
+          const h1 = document.createElement("h1");
+          h1.innerHTML = recipeTitle;
+          recipeTitleDisplay.insertBefore(h1, recipeTitleDisplay.children[0]);
+        });
+        const recipeInfo = data.map((data) => {
+          return data.missedIngredients[0].original;
+        });
+        console.log(recipeInfo);
+        console.log(recipeInfo[1]);
+
+        recipeInfo.forEach((recipeInfo) => {
+          const recipeInfoDisplay = document.getElementById("recipeInfo");
+          const h5_1 = document.createElement("h5");
+          h5_1.innerHTML = recipeInfo;
+          recipeInfoDisplay.insertBefore(h5_1, recipeInfoDisplay.children[0]);
+          console.log(recipeInfo);
+        });
+        const recipeInfo2 = data.map((data) => {
+          return data.usedIngredients[0].original;
+        });
+        console.log(recipeInfo2);
+        console.log(recipeInfo2[1]);
+
+        recipeInfo2.forEach((recipeInfo2) => {
+          const recipeInfo2Display = document.getElementById("recipeInfo2");
+          const h5_2 = document.createElement("h5");
+          h5_2.innerHTML = recipeInfo2;
+          recipeInfo2Display.insertBefore(h5_2, recipeInfo2Display.children[0]);
+          console.log(recipeInfo2);
+        });
+        // a function that hide the images
+        // iterates the
+        const images = document.querySelectorAll("div.recipeWindow img");
+
+        let i = 0;
+
+        setInterval(function () {
+          if (i == 0) {
+            images[i].className = "fade-in-image";
+          } else if (i == images.length) {
+            images[i - 1].className = "fade-out-image";
+            images[0].className = "fade-in-image";
+            i = 0;
+          } else {
+            images[i - 1].className = "fade-out-image";
+            images[i].className = "fade-in-image";
+          }
+
+          i++;
+        }, 2000);
+        const titles = document.querySelectorAll("div.recipeWindow h1");
+
+        let u = 0;
+
+        setInterval(function () {
+          if (u == 0) {
+            titles[u].className = "fade-in-image";
+          } else if (u == images.length) {
+            titles[u - 1].className = "fade-out-image";
+            titles[0].className = "fade-in-image";
+            u = 0;
+          } else {
+            titles[u - 1].className = "fade-out-image";
+            titles[u].className = "fade-in-image";
+          }
+
+          u++;
+        }, 2000);
+        const info = document.querySelectorAll("div.recipeWindow h5");
+
+        let o = 0;
+
+        setInterval(function () {
+          if (o == 0) {
+            info[o].className = "fade-in-image";
+          } else if (o == images.length) {
+            info[o - 1].className = "fade-out-image";
+            info[0].className = "fade-in-image";
+            o = 0;
+          } else {
+            info[o - 1].className = "fade-out-image";
+            info[o].className = "fade-in-image";
+          }
+
+          o++;
+        }, 2000);
+        const info2 = document.querySelectorAll("div.recipeWindow h5");
+
+        let a = 0;
+
+        setInterval(function () {
+          if (a == 0) {
+            info2[a].className = "fade-in-image";
+          } else if (a == images.length) {
+            info2[a - 1].className = "fade-out-image";
+            info2[0].className = "fade-in-image";
+            a = 0;
+          } else {
+            info2[a - 1].className = "fade-out-image";
+            info2[a].className = "fade-in-image";
+          }
+
+          a++;
+        }, 2000);
       }
     );
-
-    // if (data[0].missedIngredients.isArray([]) = true) {
-    //   const recipeInfo2 = data[0].missedIngredients[1].original;
-    //   recipeInfoWindow.innerHTML = recipeInfo2;
-    // }
   </script>
 </html>
