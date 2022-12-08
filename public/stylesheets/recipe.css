@@ -1,34 +1,13 @@
 body {
-  background-image: url("../images/dirtygroundcoffee.jpg");
-  background-size: contain;
-  background-color: black;
-  background-repeat: repeat;
-
-  height: 150vh;
-}
-
-#recipe-window {
-  max-width: 100%;
-  height: 500px;
-}
-
-#recipe-window img {
-  width: 300px;
-  align-self: center;
-  margin-top: 40%;
-  padding: 10px;
-}
-.container-fluid {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: black !important;
 }
 
 h1 {
   background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
-
   -moz-text-decoration-color: transparent;
   -webkit-text-stroke: 1px white;
   opacity: 0;
@@ -39,7 +18,6 @@ h5 {
   background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
-
   -moz-text-decoration-color: transparent;
   -webkit-text-stroke: 1px white;
   opacity: 0;
@@ -47,18 +25,51 @@ h5 {
 }
 
 img {
+}
+
+nav {
+  align-self: center;
+}
+.recipeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipeWindow {
+  width: 100%;
+  height: 500px;
+  background-color: yellow;
+}
+#getRecipe {
+  width: 20%;
+  height: 20%;
+  align-self: center;
+}
+
+#recipeTitle {
+  margin: 2%;
+  background-color: purple;
+}
+
+#recipePic {
+  width: 100%;
+  height: 50%;
+  margin: 5%;
+}
+#recipePic img {
   opacity: 0;
   position: absolute;
+  max-width: 100%;
 }
-.recipePic {
-  border: 1px solid red;
-  height: 300px;
-}
-.recipeWindow {
+
+#recipeInfo {
+  margin: 2%;
+  background-color: red;
 }
 
 .fade-in-image {
-  animation: fadeIn 10s;
+  animation: fadeIn 15s;
 }
 
 @keyframes fadeIn {
@@ -67,13 +78,13 @@ img {
   }
 }
 .fade-out-image {
-  animation: fadeOut 10s;
+  animation: fadeOut 2s;
 }
 @keyframes fadeOut {
   0% {
-    opacity: 100;
+    opacity: 0;
   }
   100% {
-    opacity: 100;
+    opacity: 1;
   }
 }
