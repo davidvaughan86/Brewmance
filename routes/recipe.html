@@ -25,21 +25,29 @@
       </nav>
 
       <br />
-
       <button id="getRecipe">Recipes</button>
+      <div id="btns">
+        <button id="nextRecipe" onclick="next()">Next</button>
+        <button id="lastRecipe" onclick="back()">Last</button>
+      </div>
+
       <br />
 
       <div class="recipeWindow">
+        <h3>Stunning!</h3>
+        <p id="number">1</p>
+        <div id="recipePic">
+          <br />
+          <br />
+        </div>
+      </div>
+      <div class="recipeInfoWindow">
         <div id="recipeTitle"></div>
         <br />
 
-        <div id="recipePic"></div>
         <br />
 
         <div id="recipeInfo"></div>
-        <br />
-
-        <div id="recipeInfo2"></div>
       </div>
     </div>
   </body>
@@ -61,6 +69,9 @@
             },
           }
         );
+
+        document.getElementById("btns").style.display = "flex";
+
         const data = await response.json();
         console.log(data);
 
@@ -110,62 +121,90 @@
           console.log(recipeInfo);
         });
 
-        const images = document.querySelectorAll("div.recipeWindow img");
+        // let i = 0;
 
-        let i = 0;
+        // setInterval(function () {
+        //   if (i == 0) {
+        //     images[i].className = "fade-in-image";
+        //   } else if (i == images.length) {
+        //     images[i - 1].className = "fade-out-image";
+        //     images[0].className = "fade-in-image";
+        //     i = 0;
+        //   } else {
+        //     images[i - 1].className = "fade-out-image";
+        //     images[i].className = "fade-in-image";
+        //   }
 
-        setInterval(function () {
-          if (i == 0) {
-            images[i].className = "fade-in-image";
-          } else if (i == images.length) {
-            images[i - 1].className = "fade-out-image";
-            images[0].className = "fade-in-image";
-            i = 0;
-          } else {
-            images[i - 1].className = "fade-out-image";
-            images[i].className = "fade-in-image";
-          }
+        //   i++;
+        // }, 2000);
 
-          i++;
-        }, 2000);
+        // let u = 0;
 
-        const titles = document.querySelectorAll("div.recipeWindow h1");
+        // setInterval(function () {
+        //   if (u == 0) {
+        //     titles[u].className = "fade-in-image";
+        //   } else if (u == titles.length) {
+        //     titles[u - 1].className = "fade-out-image";
+        //     titles[0].className = "fade-in-image";
+        //     u = 0;
+        //   } else {
+        //     titles[u - 1].className = "fade-out-image";
+        //     titles[u].className = "fade-in-image";
+        //   }
 
-        let u = 0;
+        //   u++;
+        // }, 2000);
 
-        setInterval(function () {
-          if (u == 0) {
-            titles[u].className = "fade-in-image";
-          } else if (u == titles.length) {
-            titles[u - 1].className = "fade-out-image";
-            titles[0].className = "fade-in-image";
-            u = 0;
-          } else {
-            titles[u - 1].className = "fade-out-image";
-            titles[u].className = "fade-in-image";
-          }
+        // let o = 0;
 
-          u++;
-        }, 2000);
-        const info = document.querySelectorAll("div.recipeWindow h5");
+        // setInterval(function () {
+        //   if (o == 0) {
+        //     info[o].className = "fade-in-image";
+        //   } else if (o == info.length) {
+        //     info[o - 1].className = "fade-out-image";
+        //     info[0].className = "fade-in-image";
+        //     o = 0;
+        //   } else {
+        //     info[o - 1].className = "fade-out-image";
+        //     info[o].className = "fade-in-image";
+        //   }
 
-        let o = 0;
-
-        setInterval(function () {
-          if (o == 0) {
-            info[o].className = "fade-in-image";
-          } else if (o == info.length) {
-            info[o - 1].className = "fade-out-image";
-            info[0].className = "fade-in-image";
-            o = 0;
-          } else {
-            info[o - 1].className = "fade-out-image";
-            info[o].className = "fade-in-image";
-          }
-
-          o++;
-        }, 2000);
+        //   o++;
+        // }, 2000);
       }
     );
+    function back() {
+      const images = document.getElementById("recipePic");
+      images.innerHTML = recipePic;
+    }
+    function next() {
+      const recipeDisplay = document.getElementById("recipePic");
+    }
+    const titles = document.querySelectorAll("div.recipeInfoWindow h1");
+    const info = document.querySelectorAll("div.recipeInfoWindow h5");
+
+    const backBtn = document.getElementById("lastRecipe");
+    const nextBtn = document.getElementById("nextRecipe");
+    const number = document.getElementById("number");
+    const n = 1;
+
+    // function next() {
+    //   n++;
+    //   if (n == 0) {
+    //     backBtn.disabled = true;
+    //     images.innerHTML = recipePic[n];
+    //   }
+    //   backBtn.disabled = false;
+    //   number.innerHTML = n;
+    // }
+
+    // function back() {
+    //   n--;
+    //   if (n == 20) {
+    //     nextBtn.disabled = true;
+    //   }
+    //   nextBtn.disabled = false;
+    //   number.innerHTML = n;
+    // }
   </script>
 </html>

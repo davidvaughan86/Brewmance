@@ -4,34 +4,113 @@ body {
   background-size: contain;
   background-repeat: no-repeat, repeat, no-repeat;
   background-color: rgb(215, 202, 186);
-  color: rgb(244, 223, 223);
-}
-
-body url {
-  height: 300px;
+  color: black;
+  font-family: "Fredoka One", cursive;
 }
 
 h1 {
-  position: relative;
-  background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -moz-text-decoration-color: transparent;
-  -webkit-text-stroke: 1px rgb(96, 49, 26);
+  -webkit-text-stroke: 1px rgb(249, 240, 192);
 }
 h3 {
-  position: relative;
-  background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -moz-text-decoration-color: transparent;
-  -webkit-text-stroke: 1px rgb(182, 109, 72);
+  -webkit-text-stroke: 1px rgb(196, 159, 120);
 }
 
 .aboutContainer {
-  margin-top: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about h3 {
   text-align: center;
+}
+
+.about {
+  margin-top: 45%;
+}
+
+@media all and (min-width: 725px) {
+  body {
+    background-image: url("../images/coffeguy.jpeg"),
+      url("../images/coffee-grounds.jpg");
+    background-size: center;
+    background-repeat: no-repeat, repeat;
+    color: black;
+    font-family: "Fredoka One", cursive;
+    background-color: black;
+    text-align: center;
+  }
+
+  h1 {
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-decoration-color: transparent;
+    -webkit-text-stroke: 1px rgb(249, 240, 192);
+  }
+  h3 {
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-decoration-color: transparent;
+    -webkit-text-stroke: 1px rgb(196, 159, 120);
+  }
+
+  .aboutContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+  }
+
+  .about h3 {
+  }
+
+  .about {
+    margin-top: 10%;
+  }
+}
+
+@media all and (min-width: 830px) {
+  body {
+    background-image: url("../images/coffeguy.jpeg");
+    background-size: stretch;
+    background-position: top;
+    background-repeat: no-repeat;
+    color: black;
+    font-family: "Fredoka One", cursive;
+    background-color: black;
+    text-align: center;
+  }
+
+  h1 {
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-decoration-color: transparent;
+    -webkit-text-stroke: 1px rgb(249, 240, 192);
+  }
+  h3 {
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-decoration-color: transparent;
+    -webkit-text-stroke: 1px rgb(196, 159, 120);
+  }
+
+  .aboutContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .about h3 {
+  }
+
+  .about {
+    margin-top: 40%;
+  }
 }
