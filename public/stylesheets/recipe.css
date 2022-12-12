@@ -96,6 +96,14 @@ img {
   align-self: center;
 }
 
+.in-active {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
 /* @keyframes fadeIn {
   0% {
     opacity: 0;

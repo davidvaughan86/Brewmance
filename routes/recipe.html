@@ -27,8 +27,8 @@
       <br />
       <button id="getRecipe">Recipes</button>
       <div id="btns">
-        <button id="nextRecipe" onclick="next()">Next</button>
-        <button id="lastRecipe" onclick="back()">Last</button>
+        <button id="nextRecipe">Next</button>
+        <button id="lastRecipe">Last</button>
       </div>
 
       <br />
@@ -36,10 +36,9 @@
       <div class="recipeWindow">
         <h3>Stunning!</h3>
         <p id="number">1</p>
-        <div id="recipePic">
-          <br />
-          <br />
-        </div>
+        <div id="recipePic"></div>
+        <br />
+        <br />
       </div>
       <div class="recipeInfoWindow">
         <div id="recipeTitle"></div>
@@ -73,19 +72,14 @@
         document.getElementById("btns").style.display = "flex";
 
         const data = await response.json();
-        console.log(data);
 
         const recipePic = data.map((data) => {
           return data.image;
         });
-        console.log(recipePic);
-        console.log(recipePic[1]);
 
         const recipeTitle = data.map((data) => {
           return data.title;
         });
-        console.log(recipeTitle);
-        console.log(recipeTitle[1]);
 
         const recipeInfo = data.map((data) => {
           return (
@@ -94,23 +88,21 @@
             data.usedIngredients[0].original
           );
         });
-        console.log(recipeInfo);
-        console.log(recipeInfo[1]);
 
         recipePic.forEach((recipePic) => {
           const recipeDisplay = document.getElementById("recipePic");
           const img = document.createElement("img");
           img.src = recipePic;
           recipeDisplay.insertBefore(img, recipeDisplay.children[0]);
-          console.log(recipePic);
+          recipeDisplay.style.display = "none";
         });
 
         recipeTitle.forEach((recipeTitle) => {
-          console.log(recipeTitle);
           const recipeTitleDisplay = document.getElementById("recipeTitle");
           const h1 = document.createElement("h1");
           h1.innerHTML = recipeTitle;
           recipeTitleDisplay.insertBefore(h1, recipeTitleDisplay.children[0]);
+          recipeTitleDisplay.style.display = "none";
         });
 
         recipeInfo.forEach((recipeInfo) => {
@@ -118,93 +110,68 @@
           const h5_1 = document.createElement("h5");
           h5_1.innerHTML = recipeInfo;
           recipeInfoDisplay.insertBefore(h5_1, recipeInfoDisplay.children[0]);
-          console.log(recipeInfo);
+          recipeInfoDisplay.style.display = "none";
         });
-
-        // let i = 0;
-
-        // setInterval(function () {
-        //   if (i == 0) {
-        //     images[i].className = "fade-in-image";
-        //   } else if (i == images.length) {
-        //     images[i - 1].className = "fade-out-image";
-        //     images[0].className = "fade-in-image";
-        //     i = 0;
-        //   } else {
-        //     images[i - 1].className = "fade-out-image";
-        //     images[i].className = "fade-in-image";
-        //   }
-
-        //   i++;
-        // }, 2000);
-
-        // let u = 0;
-
-        // setInterval(function () {
-        //   if (u == 0) {
-        //     titles[u].className = "fade-in-image";
-        //   } else if (u == titles.length) {
-        //     titles[u - 1].className = "fade-out-image";
-        //     titles[0].className = "fade-in-image";
-        //     u = 0;
-        //   } else {
-        //     titles[u - 1].className = "fade-out-image";
-        //     titles[u].className = "fade-in-image";
-        //   }
-
-        //   u++;
-        // }, 2000);
-
-        // let o = 0;
-
-        // setInterval(function () {
-        //   if (o == 0) {
-        //     info[o].className = "fade-in-image";
-        //   } else if (o == info.length) {
-        //     info[o - 1].className = "fade-out-image";
-        //     info[0].className = "fade-in-image";
-        //     o = 0;
-        //   } else {
-        //     info[o - 1].className = "fade-out-image";
-        //     info[o].className = "fade-in-image";
-        //   }
-
-        //   o++;
-        // }, 2000);
       }
     );
-    function back() {
-      const images = document.getElementById("recipePic");
-      images.innerHTML = recipePic;
-    }
-    function next() {
-      const recipeDisplay = document.getElementById("recipePic");
-    }
-    const titles = document.querySelectorAll("div.recipeInfoWindow h1");
-    const info = document.querySelectorAll("div.recipeInfoWindow h5");
 
-    const backBtn = document.getElementById("lastRecipe");
+    const titles = document.getElementsByTagName("h1");
+    const info = document.getElementsByTagName("h5");
     const nextBtn = document.getElementById("nextRecipe");
+    const recipe = document.getElementsByTagName("img");
     const number = document.getElementById("number");
-    const n = 1;
+    const recipeDisplay = document.getElementById("recipePic");
+    const recipeInfoDisplay = document.getElementById("recipeInfo");
+    const recipeTitleDisplay = document.getElementById("recipeTitle");
 
-    // function next() {
-    //   n++;
-    //   if (n == 0) {
-    //     backBtn.disabled = true;
-    //     images.innerHTML = recipePic[n];
-    //   }
-    //   backBtn.disabled = false;
-    //   number.innerHTML = n;
-    // }
-
-    // function back() {
-    //   n--;
-    //   if (n == 20) {
-    //     nextBtn.disabled = true;
-    //   }
-    //   nextBtn.disabled = false;
-    //   number.innerHTML = n;
-    // }
+    let i = 0;
+    let o = 0;
+    let u = 0;
+    nextBtn.addEventListener("click", function next() {
+      recipeDisplay.style.display = "block";
+      recipeInfoDisplay.style.display = "block";
+      recipeTitleDisplay.style.display = "block";
+      recipe[4].className = "in-active";
+      recipe[3].className = "in-active";
+      recipe[2].className = "in-active";
+      recipe[1].className = "in-active";
+      titles[4].className = "in-active";
+      titles[3].className = "in-active";
+      titles[2].className = "in-active";
+      titles[1].className = "in-active";
+      info[4].className = "in-active";
+      info[3].className = "in-active";
+      info[2].className = "in-active";
+      info[1].className = "in-active";
+      if ((i == 0) & (o == 0) & (u == 0)) {
+        recipe[i].className = "active";
+        info[o].className = "active";
+        titles[u].className = "active";
+      } else if (
+        (i == recipe.length) &
+        (o == info.length) &
+        (u == titles.length)
+      ) {
+        recipe[i - 1].className = "in-active";
+        recipe[0].className = "active";
+        info[o - 1].className = "in-active";
+        info[0].className = "active";
+        titles[u - 1].className = "in-active";
+        titles[0].className = "active";
+        i = 0;
+        o = 0;
+        u = 0;
+      } else {
+        recipe[i - 1].className = "in-active";
+        recipe[i].className = "active";
+        info[o - 1].className = "in-active";
+        info[o].className = "active";
+        titles[u - 1].className = "in-active";
+        titles[u].className = "active";
+      }
+      i++;
+      o++;
+      u++;
+    });
   </script>
 </html>
