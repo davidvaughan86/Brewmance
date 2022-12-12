@@ -7,7 +7,7 @@ const mustacheExpress = require("mustache-express");
 const path = require("path");
 const helmet = require("helmet");
 const VIEWS_PATH = path.join(__dirname, "/views");
-const recipeRoutes = require("./routes/recipe");
+const recipeRoutes = require("./routes/recipe-route");
 const locateRoutes = require("./routes/locate");
 const bodyParser = require("body-parser");
 
@@ -21,7 +21,8 @@ app.use("/locate", locateRoutes);
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, "/public")));
-app.use(helmet());
+
+const external = path.join(__dirname, "/routes");
 
 function test() {
   console.log("yes");

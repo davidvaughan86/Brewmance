@@ -6,14 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/recipe.css" />
-    <!-- CSS only -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
       rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
     />
-    <!-- JavaScript Bundle with Popper -->
   </head>
 
   <body>
@@ -27,15 +23,15 @@
       <br />
       <button id="getRecipe">Recipes</button>
       <div id="btns">
-        <button id="nextRecipe">Next</button>
+        <button id="nextRecipe">Start</button>
         <button id="lastRecipe">Last</button>
       </div>
 
       <br />
 
       <div class="recipeWindow">
-        <h3>Stunning!</h3>
-        <p id="number">1</p>
+        <h3 id="adjectives"></h3>
+
         <div id="recipePic"></div>
         <br />
         <br />
@@ -123,26 +119,41 @@
     const recipeDisplay = document.getElementById("recipePic");
     const recipeInfoDisplay = document.getElementById("recipeInfo");
     const recipeTitleDisplay = document.getElementById("recipeTitle");
+    const adjective = document.getElementById("adjectives");
+    const adjectives = [
+      "😍😍😍",
+      "🤤🤤🤤",
+      "😋😋😋",
+      "Stunning",
+      "Amazing",
+      "Decadent",
+    ];
 
     let i = 0;
     let o = 0;
     let u = 0;
     nextBtn.addEventListener("click", function next() {
+      // adjectives.map((adjectives) => {
+      //   if (((a = 0), a < 5, a++)) {
+      //     adjective.innerHTML = adjectives[a];
+      //   } else if (((a = 5), a--)) {
+      //     adjective.innerHTML = adjectives[a];12asd
+      //   }
+      // });
+      nextBtn.innerHTML = "Cycle Recipes";
       recipeDisplay.style.display = "block";
       recipeInfoDisplay.style.display = "block";
       recipeTitleDisplay.style.display = "block";
-      recipe[4].className = "in-active";
-      recipe[3].className = "in-active";
-      recipe[2].className = "in-active";
-      recipe[1].className = "in-active";
-      titles[4].className = "in-active";
-      titles[3].className = "in-active";
-      titles[2].className = "in-active";
-      titles[1].className = "in-active";
-      info[4].className = "in-active";
-      info[3].className = "in-active";
-      info[2].className = "in-active";
-      info[1].className = "in-active";
+      Array.from(recipe).forEach((recipe) => {
+        recipe.className = "in-active";
+      });
+      Array.from(titles).forEach((title) => {
+        title.className = "in-active";
+      });
+      Array.from(info).forEach((info) => {
+        info.className = "in-active";
+      });
+
       if ((i == 0) & (o == 0) & (u == 0)) {
         recipe[i].className = "active";
         info[o].className = "active";

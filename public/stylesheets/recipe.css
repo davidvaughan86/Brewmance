@@ -5,6 +5,19 @@ body {
   background-image: url("../images/dirtygroundcoffee.jpg");
   background-position: center;
   background-size: cover;
+  font-family: "Fredoka One", cursive;
+}
+a {
+  text-decoration: none;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -moz-text-decoration-color: transparent;
+  -webkit-text-stroke: 1px white;
+  font-size: 20px;
+  color: rgb(85, 52, 6);
+}
+a:hover {
+  font-size: 35px;
 }
 
 h1 {
@@ -68,7 +81,6 @@ img {
 
 #recipeTitle {
   margin: 2%;
-  background-color: purple;
   height: 50px;
   padding: 2%;
 }
@@ -86,14 +98,8 @@ img {
 
 #recipeInfo {
   margin: 2%;
-  background-color: red;
   height: 50px;
   padding: 2%;
-}
-
-.fade-in-image {
-  animation: fadeIn 15s;
-  align-self: center;
 }
 
 .in-active {
@@ -103,21 +109,3 @@ img {
 .active {
   display: block;
 }
-
-/* @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-}
-.fade-out-image {
-  animation: fadeOut 2s;
-  align-self: center;
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-} */
