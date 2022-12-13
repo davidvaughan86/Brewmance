@@ -1,5 +1,3 @@
-![Brewmance](./public/images/brewmance.png)
-
 ![Brewmance-gif](https://media.giphy.com/media/9UgMns4KV7to6T0aVu/giphy.gif)
 
 # What is Brewmance?
@@ -42,4 +40,6 @@
 
 - I plan to take all of this code and implement it into React with more functionality. Please stay tuned to Bremance v 2.0 in React
 
-[You can use this link to get back to my portfolio] (http://dave2dev.com/).
+You can use this link to get back to [my portfolio](http://dave2dev.com/).
+
+![Brewmance](./public/images/brewmance.png)
