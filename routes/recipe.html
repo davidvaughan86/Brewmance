@@ -53,7 +53,7 @@
       async function getRecipe() {
         document.getElementById("getRecipe").disabled = true;
         const response = await fetch(
-          "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=coffee&number=5&ignorePantry=true&ranking=1",
+          "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=coffee&number=15&ignorePantry=true&ranking=1",
           {
             method: "GET",
             headers: {
@@ -102,7 +102,7 @@
 
         recipeInfo.forEach((recipeInfo) => {
           const recipeInfoDisplay = document.getElementById("recipeInfo");
-          const h5_1 = document.createElement("h5");
+          const h5_1 = document.createElement("h2");
           h5_1.innerHTML = recipeInfo;
           recipeInfoDisplay.insertBefore(h5_1, recipeInfoDisplay.children[0]);
           recipeInfoDisplay.style.display = "none";
@@ -111,7 +111,7 @@
     );
 
     const titles = document.getElementsByTagName("h1");
-    const info = document.getElementsByTagName("h5");
+    const info = document.getElementsByTagName("h2");
     const nextBtn = document.getElementById("nextRecipe");
     const recipe = document.getElementsByTagName("img");
     const number = document.getElementById("number");
@@ -132,17 +132,10 @@
     let o = 0;
     let u = 0;
     nextBtn.addEventListener("click", function next() {
-      // adjectives.map((adjectives) => {
-      //   if (((a = 0), a < 5, a++)) {
-      //     adjective.innerHTML = adjectives[a];
-      //   } else if (((a = 5), a--)) {
-      //     adjective.innerHTML = adjectives[a];12asd
-      //   }
-      // });
       nextBtn.innerHTML = "Cycle Recipes";
-      recipeDisplay.style.display = "block";
-      recipeInfoDisplay.style.display = "block";
-      recipeTitleDisplay.style.display = "block";
+      recipeDisplay.style.display = "flex";
+      recipeInfoDisplay.style.display = "flex";
+      recipeTitleDisplay.style.display = "flex";
       Array.from(recipe).forEach((recipe) => {
         recipe.className = "in-active";
       });
