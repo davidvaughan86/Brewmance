@@ -38,7 +38,7 @@
 
 - About half way through this project I learned that I was going to have to massivley scale back my original plans due to the **limitations of template engines**. There were many times I almost scrapped the project entirely.
 
-- I plan to take all of this code and implement it into React with more functionality. Please stay tuned to Bremance v 2.0 in React
+- I plan to take all of this code and implement it into React with more functionality. Please stay tuned to [Bremance v 2.0 in React](https://github.com/davidvaughan86/Brewmance-React).
 
 You can use this link to get back to [my portfolio](http://dave2dev.com/).
 
